@@ -45,22 +45,22 @@ ap_c = sim.ap_c;
 ap_u = sim.ap_u;
 ap_y = sim.ap_y;
 
-% plot AP com perturbacao
+% plot AP
 figure(6);
 plot(ap_time, ap_u, '--k', 'LineWidth', 1.4), hold on;
 plot(ap_time, ap_c, 'b', 'LineWidth', 1.4);
 plot(ap_time, ap_y, 'r', 'LineWidth', 1.4);
-title('Resposta à entrada em degrau unitário');
-legend('referência','sinal de controle','g(s) com AP'), hold off;
+title('unit step response');
+legend('ref','control Signal','g(s) with AP'), hold off;
 
 ap_c1 = sim.ap_c1;
 ap_u1 = sim.ap_u1;
 ap_y1 = sim.ap_y1;
 
-% plot AP com perturbacao
+% plot AP with disturbance
 figure(7);
 plot(ap_time, ap_u1, '--k', 'LineWidth', 1.4), hold on;
 plot(ap_time, ap_c1, 'b', 'LineWidth', 1.4);
 plot(ap_time, ap_y1, 'r', 'LineWidth', 1.4);
-title('Resposta à entrada em degrau unitário');
-legend('referência','sinal de controle','g(s) com AP e perturbações'), hold off;
+title('unit step response');
+legend('ref','control Signal','g(s) with AP and disturbance'), hold off;
