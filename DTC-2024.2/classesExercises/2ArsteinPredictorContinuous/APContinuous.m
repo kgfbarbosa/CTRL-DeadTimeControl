@@ -36,7 +36,7 @@ Bprime = T^(-1)*B;
 Cprime = c*T;
 Dprime = D;
 
-K = 6*(-A);                       % K adjusted
+K = 6*(-A);                         % K adjusted
 kr = (Cprime*((Bprime*K-Aprime)^(-1))*Bprime)^(-1);     % kr adjusted
 
 sim = sim("APContinuousSimulink.slx");
