@@ -27,7 +27,7 @@ alfa1 = 0.5;
 [kc,kr,b11,b12]=SFSPTuning(b1,a1,tau1,alfa1,hd,Ts);
 Fz=(b11*z^2+b12*z)/(z-alfa1)^2;
 V=zpk(Fz);
-S=minreal(Gz*(1-V*hd),1e-4);
+S=minreal(Gz*(1-hd*V),1e-4);
 
 
 % simulation parameters
@@ -40,19 +40,20 @@ finaldisturbancevalue = 0.2;
 Tnoise = 20;
 initialnoisevalue = 0;
 finalnoisevalue = 0.0;
-Tsim = 30;
-
-sim = sim("SFSPDiscreteSimulink.slx");
-sfsp_time = sim.sfsp_time;
-
-% plot SFSP
-sfsp_ref = sim.sfsp_ref;
-sfsp_u = sim.sfsp_u;
-sfsp_y = sim.sfsp_y;
-
-figure(1);
-plot(sfsp_time, sfsp_ref, '--k', 'LineWidth', 1.7), hold on;
-plot(sfsp_time, sfsp_u, 'b', 'LineWidth', 1.7);
-plot(sfsp_time, sfsp_y, 'r', 'LineWidth', 1.7);
-title('unit step response');
-legend('ref','control signal','g(s) with SFSP'), hold off;
+Tsim = 40;
+% 
+% sim = sim("SFSPDiscreteSimulink.slx");
+% sfsp_time = sim.sfsp_time;
+% 
+% % plot SFSP
+% sfsp_ref = sim.sfsp_ref;
+% sfsp_u = sim.sfsp_u;
+% sfsp_c = sim.sfsp_c;
+% sfsp_y = sim.sfsp_y;
+% 
+% figure(1);
+% plot(sfsp_time, sfsp_u, '--k', 'LineWidth', 1.7), hold on;
+% plot(sfsp_time, sfsp_c, 'b', 'LineWidth', 1.7);
+% plot(sfsp_time, sfsp_y, 'r', 'LineWidth', 1.7);
+% title('unit step response');
+% legend('ref','control signal','g(s) with SFSP'), hold off;
